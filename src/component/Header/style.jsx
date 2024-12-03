@@ -72,7 +72,7 @@ export const StyleHeader = styled.div`
     }
   }
 
-  .dropdown-container {
+.dropdown-container {
   position: relative;
   display: inline-block;
   font-family: Arial, sans-serif;
@@ -85,6 +85,13 @@ export const StyleHeader = styled.div`
   padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
+}
+
+/* Mostra o menu com uma transição suave */
+.dropdown-container:hover .dropdown-menu {
+  opacity: 1; /* Deixa o menu visível */
+  visibility: visible; /* Torna o menu visível */
+  transition: opacity 0.3s ease, visibility 0s 0.3s /* Aplica transição suave */
 }
 
 .dropdown-menu {
@@ -100,6 +107,9 @@ export const StyleHeader = styled.div`
   padding: 10px 0;
   width: 200px;
   z-index: 1000;
+  opacity: 0; /* Inicialmente invisível */
+  visibility: hidden; /* Inicialmente invisível */
+  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Adiciona a transição de opacidade */
 }
 
 .dropdown-menu li {
