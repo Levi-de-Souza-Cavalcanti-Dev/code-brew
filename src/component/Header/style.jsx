@@ -16,24 +16,24 @@ export const StyleHeader = styled.div`
   text-align: center;
 
   .container {
-    width: 70%;
+    width: 60%;
     margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    gap: 200px; 
+    gap: 300px; 
   }
 
  .btn-service {
-  background: #e3a72f;
-  padding: 0px 25px;
-  border-radius: 20px;
-  font-size: 16px;
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    background: #e3a72f;
+    padding: 0px 25px;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} 
 
   .logotipo {
     width: 100px;
@@ -67,7 +67,7 @@ export const StyleHeader = styled.div`
       align-items: center;
       justify-content: center;
       width: 25px;
-      height: 25px;
+      height: 30px;
     }
   }
 
@@ -85,13 +85,14 @@ export const StyleHeader = styled.div`
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
+  color: #2b6f7b;
 }
 
 .dropdown-container:hover .dropdown-menu {
   opacity: 1;
   visibility: visible; 
   transform: translateY(0); /* Reseta o movimento */
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, transform .3s ease;
 }
 
 .dropdown-menu {
@@ -116,7 +117,7 @@ export const StyleHeader = styled.div`
 .dropdown-menu li {
   padding: 8px 20px;
   font-size: 14px;
-  color: #333;
+  color: #2b6f7b;
   cursor: pointer;
 }
 

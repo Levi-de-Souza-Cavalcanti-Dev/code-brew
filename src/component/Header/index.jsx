@@ -23,17 +23,6 @@ export const Header = () => {
             <li>Our team</li>
             <li>Talk to us</li>
             <li>Careers</li>
-            <hr />
-            <li>
-              <a href="#blog" target="_blank" rel="noopener noreferrer">
-                Blog ↗
-              </a>
-            </li>
-            <li>
-              <a href="#opensource" target="_blank" rel="noopener noreferrer">
-                Open source ↗
-              </a>
-            </li>
           </ul>
         </div>
       </div>
