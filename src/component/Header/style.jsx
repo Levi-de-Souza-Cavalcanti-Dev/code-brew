@@ -16,11 +16,12 @@ export const StyleHeader = styled.div`
   text-align: center;
 
   .container {
-    width: 80%;
+    width: 70%;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Para separar logotipo e menu */
+    justify-content: flex-start;
+    gap: 200px; 
   }
 
  .btn-service {
@@ -45,11 +46,10 @@ export const StyleHeader = styled.div`
 
   .menu {
     ul {
-      display: flex; /* Alinha os itens em linha */
-      gap: 20px; /* Espaço entre os itens */
-      list-style: none; /* Remove os marcadores da lista */
-      margin: 0; /* Remove margens padrão */
-      padding: 0; /* Remove preenchimento padrão */
+      display: flex; 
+      gap: 20px; 
+      list-style: none; 
+      margin: 0 30px; 
     }
 
     li {
@@ -58,17 +58,16 @@ export const StyleHeader = styled.div`
     }
 
     .fundo{
-           grid-area: social;
-    margin: 0 3px;
-    color: #ffffff;
-    background: #2b6f7b;
-    border-radius: 100%;
-    display: flex
-;
-    align-items: center;
-    justify-content: center;
-    width: 25px;
-    height: 25px;
+      grid-area: social;
+      margin: 0 3px;
+      color: #ffffff;
+      background: #2b6f7b;
+      border-radius: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
     }
   }
 
@@ -85,13 +84,14 @@ export const StyleHeader = styled.div`
   padding: 10px 15px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: bold;
 }
 
-/* Mostra o menu com uma transição suave */
 .dropdown-container:hover .dropdown-menu {
-  opacity: 1; /* Deixa o menu visível */
-  visibility: visible; /* Torna o menu visível */
-  transition: opacity 0.3s ease, visibility 0s 0.3s /* Aplica transição suave */
+  opacity: 1;
+  visibility: visible; 
+  transform: translateY(0); /* Reseta o movimento */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .dropdown-menu {
@@ -109,7 +109,8 @@ export const StyleHeader = styled.div`
   z-index: 1000;
   opacity: 0; /* Inicialmente invisível */
   visibility: hidden; /* Inicialmente invisível */
-  transition: opacity 0.3s ease, visibility 0s 0.3s; /* Adiciona a transição de opacidade */
+  transform: translateY(-10px); /* Move o menu levemente para cima */
+  transition: opacity 0.3s ease, transform 0.3s ease; 
 }
 
 .dropdown-menu li {
