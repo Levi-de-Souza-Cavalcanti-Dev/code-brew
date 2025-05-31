@@ -1,6 +1,20 @@
 export const Body = () => {
     return(
-        <div>
+        <div className="body-container">
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
+            <h1>Bem-vindo ao corpo da página!</h1>
             <h1>Bem-vindo ao corpo da página!</h1>
         </div>
     );
