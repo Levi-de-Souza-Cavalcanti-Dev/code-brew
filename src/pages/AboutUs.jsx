@@ -56,7 +56,7 @@ const AboutUs = () => (
     <div style={{ display: 'flex', gap: 32, margin: '32px 0', flexWrap: 'wrap', justifyContent: 'center' }}>
       <div style={{ textAlign: 'center' }}>
         <img src="https://avatars.githubusercontent.com/u/9919?s=200&v=4" alt="Dev" style={{ width: 90, borderRadius: '50%', marginBottom: 8, border: '3px solid #2b6f7b' }} />
-        <div style={{ fontWeight: 600 }}>Levi Souza</div>
+        <div style={{ fontWeight: 600 }}>Levi Cavalcanti</div>
         <div style={{ color: '#888', fontSize: 14 }}>Full Stack Developer</div>
       </div>
       <div style={{ textAlign: 'center' }}>
