@@ -185,4 +185,60 @@
   .service-card {
     margin: 0 20px;
   }
-} 
+}
+
+/* Stacks Section */
+.stacks-section {
+  padding: 40px 0;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.stacks-section h2 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  color: #222;
+}
+
+.stacks-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.stack-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 20px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 120px;
+}
+
+.stack-card:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.stack-icon {
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* Cores específicas para cada stack */
+.stack-card .fa-python { color: #3776AB; }
+.stack-card .fa-java { color: #007396; }
+.stack-card .fa-js-square { color: #F7DF1E; }
+.stack-card .fa-react { color: #61DAFB; }
+.stack-card .fa-angular { color: #DD0031; }
+.stack-card .fa-aws { color: #FF9900; }
+.stack-card .fa-database { color: #4DB33D; }
+.stack-card .fa-code { color: #512BD4; } /* Roxo do .NET */ 

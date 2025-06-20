@@ -1,6 +1,7 @@
 import React from 'react';
 import './Body.css';
 import gearImage from './imagens/engrenagem-removebg-preview.png';
+import { SiDotnet } from 'react-icons/si';
 
 const Body = () => {
   return (
@@ -36,6 +37,21 @@ const Body = () => {
             <h3>Backend Solutions</h3>
             <p>APIs robustas e sistemas escaláveis</p>
           </div>
+        </div>
+      </section>
+
+      <section className="stacks-section">
+        <h2>Stacks que Utilizamos</h2>
+        <div className="stacks-grid">
+          <div className="stack-card"><i className="fab fa-python stack-icon" title="Python"></i> Python</div>
+          <div className="stack-card"><i className="fab fa-java stack-icon" title="Java"></i> Java</div>
+          <div className="stack-card"><i className="fab fa-js-square stack-icon" title="JavaScript"></i> JavaScript</div>
+          <div className="stack-card"><i className="fab fa-react stack-icon" title="React"></i> React</div>
+          <div className="stack-card"><i className="fab fa-angular stack-icon" title="Angular"></i> Angular</div>
+          <div className="stack-card"><i className="fab fa-aws stack-icon" title="AWS"></i> AWS</div>
+          <div className="stack-card"><i className="fas fa-database stack-icon" title="MySQL"></i> MySQL</div>
+          <div className="stack-card"><i className="fas fa-database stack-icon" title="NoSQL"></i> NoSQL</div>
+          <div className="stack-card"><SiDotnet className="stack-icon" title=".NET" style={{ color: '#512BD4' }} />C#</div>
         </div>
       </section>
 
