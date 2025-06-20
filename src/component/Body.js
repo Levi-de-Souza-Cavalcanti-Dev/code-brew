@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Body.css';
 import gearImage from './imagens/engrenagem-removebg-preview.png';
 import { SiDotnet } from 'react-icons/si';
 
 const Body = () => {
+  const [noticias, setNoticias] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:5000/noticias')
+      .then(res => res.json())
+      .then(data => setNoticias(data))
+      .catch(() => setNoticias([]));
+  }, []);
+
   return (
     <div className="body-container">
       <section className="hero-section">
@@ -51,7 +60,25 @@ const Body = () => {
           <div className="stack-card"><i className="fab fa-aws stack-icon" title="AWS"></i> AWS</div>
           <div className="stack-card"><i className="fas fa-database stack-icon" title="MySQL"></i> MySQL</div>
           <div className="stack-card"><i className="fas fa-database stack-icon" title="NoSQL"></i> NoSQL</div>
-          <div className="stack-card"><SiDotnet className="stack-icon" title=".NET" style={{ color: '#512BD4' }} />C#</div>
+          <div className="stack-card"><SiDotnet className="stack-icon" title=".NET" style={{ color: '#512BD4' }} />.NET</div>
+        </div>
+      </section>
+
+      {/* Seção de Notícias de Tecnologia */}
+      <section className="news-section">
+        <h2>Notícias de Tecnologia</h2>
+        <div className="news-list">
+          {noticias.length === 0 && <p>Carregando notícias...</p>}
+          {noticias.map((noticia, idx) => (
+            <a key={idx} href={noticia.url} target="_blank" rel="noopener noreferrer" className="news-card">
+              {noticia.urlToImage && <img src={noticia.urlToImage} alt={noticia.title} className="news-img" />}
+              <div>
+                <h3>{noticia.title}</h3>
+                <p style={{ fontSize: '0.95rem', color: '#555' }}>{noticia.description}</p>
+                <span style={{ fontSize: '0.8rem', color: '#888' }}>{noticia.source?.name}</span>
+              </div>
+            </a>
+          ))}
         </div>
       </section>
 

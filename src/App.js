@@ -6,9 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import AboutUs from './pages/AboutUs';
 import WhatWeDo from './pages/WhatWeDo';
 import Technologies from './pages/Technologies';
-import OurTeam from './pages/OurTeam';
 import TalkToUs from './pages/TalkToUs';
-import Careers from './pages/Careers';
 
 function App() {
   return (
@@ -21,9 +19,7 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/what-we-do" element={<WhatWeDo />} />
             <Route path="/technologies" element={<Technologies />} />
-            <Route path="/our-team" element={<OurTeam />} />
             <Route path="/talk-to-us" element={<TalkToUs />} />
-            <Route path="/careers" element={<Careers />} />
           </Routes>
         </main>
         <footer>
@@ -32,9 +28,9 @@ function App() {
 
         <div className='bg-yellow'>
           <div className='reserved'>
-            <span>© 2011-2024 Code Brew. All Rights Reserved.</span>
+            <span>© 2024-2025 Code Brew. All Rights Reserved.</span>
           </div>
-        </div>
+        </div>  
       </div>
     </Router>
   );

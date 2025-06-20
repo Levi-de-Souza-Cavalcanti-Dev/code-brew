@@ -241,4 +241,50 @@
 .stack-card .fa-angular { color: #DD0031; }
 .stack-card .fa-aws { color: #FF9900; }
 .stack-card .fa-database { color: #4DB33D; }
-.stack-card .fa-code { color: #512BD4; } /* Roxo do .NET */ 
+.stack-card .fa-code { color: #512BD4; } /* Roxo do .NET */
+
+.news-section {
+  padding: 40px 0 20px 0;
+  background: white;
+  text-align: center;
+}
+
+.news-section h2 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  color: #222;
+}
+
+.news-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.news-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  padding: 16px;
+  width: 320px;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.news-card:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.news-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 6px;
+} 
