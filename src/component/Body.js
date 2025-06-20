@@ -57,10 +57,11 @@ const Body = () => {
           <div className="stack-card"><i className="fab fa-js-square stack-icon" title="JavaScript"></i> JavaScript</div>
           <div className="stack-card"><i className="fab fa-react stack-icon" title="React"></i> React</div>
           <div className="stack-card"><i className="fab fa-angular stack-icon" title="Angular"></i> Angular</div>
+          <div className="stack-card"><i className="fab fa-node-js stack-icon" title="Node.js" style={{ color: '#3C873A' }}></i> Node.js</div>
           <div className="stack-card"><i className="fab fa-aws stack-icon" title="AWS"></i> AWS</div>
           <div className="stack-card"><i className="fas fa-database stack-icon" title="MySQL"></i> MySQL</div>
           <div className="stack-card"><i className="fas fa-database stack-icon" title="NoSQL"></i> NoSQL</div>
-          <div className="stack-card"><SiDotnet className="stack-icon" title=".NET" style={{ color: '#512BD4' }} />.NET</div>
+          <div className="stack-card"><SiDotnet className="stack-icon" title=".NET" style={{ color: '#512BD4' }} />C#</div>
         </div>
       </section>
 

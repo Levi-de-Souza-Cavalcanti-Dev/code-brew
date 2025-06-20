@@ -96,6 +96,7 @@ const TalkToUs = () => {
   const [success, setSuccess] = useState(null);
   const [focus, setFocus] = useState({ nome: false, email: false, mensagem: false });
   const [isHover, setIsHover] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -106,25 +107,24 @@ const TalkToUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (isSending) return; // Evita múltiplos envios
+    setIsSending(true);
     setStatus('Enviando...');
     setSuccess(null);
     try {
-      const response = await fetch('http://localhost:5000/contato', {
+      await fetch('http://localhost:5000/contato/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      if (response.ok) {
-        setStatus('Mensagem enviada com sucesso!');
-        setSuccess(true);
-        setForm({ nome: '', email: '', mensagem: '' });
-      } else {
-        setStatus('Erro ao enviar mensagem.');
-        setSuccess(false);
-      }
+      setStatus('Mensagem enviada com sucesso!');
+      setSuccess(true);
+      setForm({ nome: '', email: '', mensagem: '' });
     } catch (error) {
-      setStatus('Erro ao conectar com o servidor.');
+      setStatus('Erro ao enviar mensagem.');
       setSuccess(false);
+    } finally {
+      setIsSending(false);
     }
   };
 
@@ -136,13 +136,10 @@ const TalkToUs = () => {
           100% { transform: rotate(360deg); }
         }
       `}</style>
-      {/* Engrenagens no background da página */}
       <img src={gearImage} alt="Engrenagem" style={{ position: 'absolute', left: 0, top: 80, width: 120, opacity: 0.08, zIndex: 0, pointerEvents: 'none', ...rotatingStyle }} />
       <img src={gearImage} alt="Engrenagem" style={{ position: 'absolute', right: 0, top: 200, width: 90, opacity: 0.09, zIndex: 0, pointerEvents: 'none', transform: 'rotate(15deg)', ...rotatingStyle }} />
       <img src={gearImage} alt="Engrenagem" style={{ position: 'absolute', left: 40, bottom: 0, width: 70, opacity: 0.07, zIndex: 0, pointerEvents: 'none', transform: 'rotate(-10deg)', ...rotatingStyle }} />
-      {/* Cartão do formulário */}
       <div style={{ ...cardStyle, overflow: 'hidden', position: 'relative', zIndex: 1, background: '#fff' }}>
-        {/* Engrenagens decorativas no cartão */}
         <img src={gearImage} alt="Engrenagem" style={{ position: 'absolute', left: -38, top: -38, width: 90, opacity: 0.13, zIndex: 0, transform: 'rotate(-20deg)', ...rotatingStyle }} />
         <img src={gearImage} alt="Engrenagem" style={{ position: 'absolute', right: -38, bottom: -38, width: 90, opacity: 0.13, zIndex: 0, transform: 'rotate(30deg)', ...rotatingStyle }} />
         <h1 style={titleStyle}>Fale com a gente</h1>
@@ -194,8 +191,9 @@ const TalkToUs = () => {
             style={isHover ? { ...buttonStyle, ...buttonHoverStyle } : buttonStyle}
             onMouseEnter={() => setIsHover(true)}
             onMouseLeave={() => setIsHover(false)}
+            disabled={isSending}
           >
-            Enviar
+            {isSending ? 'Enviando...' : 'Enviar'}
           </button>
         </form>
         {status && (
