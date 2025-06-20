@@ -7,10 +7,17 @@ const Body = () => {
   const [noticias, setNoticias] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/noticias')
-      .then(res => res.json())
-      .then(data => setNoticias(data))
-      .catch(() => setNoticias([]));
+    const fetchNoticias = async () => {
+      try {
+        const response = await fetch('https://code-brew.onrender.com/noticias/');
+        const data = await response.json();
+        setNoticias(data);
+      } catch (error) {
+        setNoticias([]);
+      }
+    };
+
+    fetchNoticias();
   }, []);
 
   return (
