@@ -5,20 +5,52 @@ import { SiDotnet } from 'react-icons/si';
 
 const Body = () => {
   const [noticias, setNoticias] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchNoticias = async () => {
       try {
+        // Verificar se há notícias em cache
+        const cachedNoticias = localStorage.getItem('noticias_cache');
+        const cacheTimestamp = localStorage.getItem('noticias_timestamp');
+        const currentTime = Date.now();
+        const cacheExpiry = 30 * 60 * 1000; // 30 minutos
+
+        // Se há cache válido, usar ele
+        if (cachedNoticias && cacheTimestamp && (currentTime - parseInt(cacheTimestamp)) < cacheExpiry) {
+          console.log('Usando notícias do cache');
+          setNoticias(JSON.parse(cachedNoticias));
+          setLoading(false);
+          return;
+        }
+
+        // Se não há cache válido, buscar da API
+        console.log('Buscando notícias da API');
         const response = await fetch('https://code-brew.onrender.com/noticias/');
         const data = await response.json();
+        
+        // Salvar no cache
+        localStorage.setItem('noticias_cache', JSON.stringify(data));
+        localStorage.setItem('noticias_timestamp', currentTime.toString());
+        
         setNoticias(data);
+        setLoading(false);
       } catch (error) {
+        console.error('Erro ao buscar notícias:', error);
         setNoticias([]);
+        setLoading(false);
       }
     };
 
     fetchNoticias();
   }, []);
+
+  // Função para limpar cache (opcional, para debug)
+  const clearCache = () => {
+    localStorage.removeItem('noticias_cache');
+    localStorage.removeItem('noticias_timestamp');
+    console.log('Cache limpo');
+  };
 
   return (
     <div className="body-container">
@@ -71,10 +103,12 @@ const Body = () => {
           <div className="stack-card"><SiDotnet className="stack-icon" title=".NET" style={{ color: '#512BD4' }} />C#</div>
         </div>
       </section>
+      
       <section className="news-section">
         <h2>Notícias de Tecnologia</h2>
         <div className="news-list">
-          {noticias.length === 0 && <p>Carregando notícias...</p>}
+          {loading && <p>Carregando notícias...</p>}
+          {!loading && noticias.length === 0 && <p>Nenhuma notícia disponível no momento.</p>}
           {noticias.map((noticia, idx) => (
             <a key={idx} href={noticia.url} target="_blank" rel="noopener noreferrer" className="news-card">
               {noticia.urlToImage && <img src={noticia.urlToImage} alt={noticia.title} className="news-img" />}
@@ -88,6 +122,23 @@ const Body = () => {
             </a>
           ))}
         </div>
+        {/* Botão para limpar cache (remover em produção) */}
+        {process.env.NODE_ENV === 'development' && (
+          <button 
+            onClick={clearCache} 
+            style={{ 
+              marginTop: '10px', 
+              padding: '5px 10px', 
+              fontSize: '12px',
+              background: '#f0f0f0',
+              border: '1px solid #ccc',
+              borderRadius: '3px',
+              cursor: 'pointer'
+            }}
+          >
+            Limpar Cache (Dev)
+          </button>
+        )}
       </section>
 
       <section className="about-section">
