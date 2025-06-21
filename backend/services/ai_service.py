@@ -4,54 +4,15 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# Configurar a API do Google Gemini
 genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
-
-def generate_simple_summary(title, description):
-    """
-    Gera um resumo simples em português quando a Gemini não está disponível
-    """
-    # Palavras-chave para identificar o tipo de notícia
-    keywords = {
-        'android': 'Android',
-        'iphone': 'iPhone', 
-        'google': 'Google',
-        'apple': 'Apple',
-        'samsung': 'Samsung',
-        'ai': 'Inteligência Artificial',
-        'artificial intelligence': 'Inteligência Artificial',
-        'app': 'Aplicativo',
-        'software': 'Software',
-        'update': 'Atualização',
-        'new': 'Novo',
-        'release': 'Lançamento'
-    }
-    
-    # Converter para minúsculas para comparação
-    text = (title + ' ' + description).lower()
-    
-    # Identificar palavras-chave
-    found_keywords = []
-    for eng, pt in keywords.items():
-        if eng in text:
-            found_keywords.append(pt)
-    
-    # Gerar resumo simples
-    if found_keywords:
-        main_topic = found_keywords[0]
-        return f"Novidades sobre {main_topic} que podem interessar aos usuários."
-    else:
-        return "Nova tecnologia promete melhorar a experiência dos usuários."
 
 def generate_news_summary(title, description, content=""):
     """
     Gera um resumo curto em português de uma notícia usando a Google Gemini API
     """
     try:
-        # Configurar o modelo
         model = genai.GenerativeModel('gemini-1.5-flash-latest')
         
-        # Preparar o prompt para resumos curtos
         prompt = f"""
         Analise esta notícia de tecnologia e crie uma sinopse curta em português brasileiro.
         
@@ -68,23 +29,32 @@ def generate_news_summary(title, description, content=""):
         Sinopse:
         """
         
-        # Gerar o resumo
         response = model.generate_content(prompt)
-        
-        # Extrair o texto da resposta
         summary = response.text.strip()
         
-        # Limpar o texto se necessário
+        # Limpar e truncar se necessário
         if summary.startswith('Sinopse:'):
             summary = summary[8:].strip()
         
-        # Garantir que não seja muito longo
-        if len(summary) > 120:
-            summary = summary[:117] + "..."
-        
-        return summary
+        return summary[:120] + "..." if len(summary) > 120 else summary
         
     except Exception as e:
         print(f"Erro ao gerar resumo com Gemini: {e}")
-        # Usar resumo simples como fallback
-        return generate_simple_summary(title, description) 
+        return _generate_fallback_summary(title, description)
+
+def _generate_fallback_summary(title, description):
+    """
+    Gera um resumo simples quando a Gemini não está disponível
+    """
+    keywords = {
+        'android': 'Android', 'iphone': 'iPhone', 'google': 'Google',
+        'apple': 'Apple', 'samsung': 'Samsung', 'ai': 'Inteligência Artificial',
+        'app': 'Aplicativo', 'software': 'Software', 'update': 'Atualização',
+        'new': 'Novo', 'release': 'Lançamento', 'phone': 'Smartphone'
+    }
+    
+    text = (title + ' ' + description).lower()
+    found_keywords = [pt for eng, pt in keywords.items() if eng in text]
+    
+    main_topic = found_keywords[0] if found_keywords else "tecnologia"
+    return f"Novidades sobre {main_topic} que podem interessar aos usuários." 

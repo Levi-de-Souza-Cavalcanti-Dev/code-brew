@@ -14,17 +14,14 @@ def get_tech_news(api_key):
         return not any(p in texto for p in palavras_jogos)
     filtrados = list(filter(nao_e_jogo, artigos))
     
-    # Pegar os primeiros 6 artigos e adicionar resumos
     artigos_finais = []
     for artigo in filtrados[:6]:
-        # Gerar resumo em português
         resumo = generate_news_summary(
             title=artigo.get('title', ''),
             description=artigo.get('description', ''),
             content=artigo.get('content', '')
         )
         
-        # Adicionar o resumo ao artigo
         artigo['resumoGPT'] = resumo
         artigos_finais.append(artigo)
     
