@@ -1,4 +1,5 @@
 import requests
+from .ai_service import generate_news_summary
 
 def get_tech_news(api_key):
     url = f'https://newsapi.org/v2/top-headlines?category=technology&apiKey={api_key}'
@@ -12,4 +13,19 @@ def get_tech_news(api_key):
         texto = (title + ' ' + description).lower()
         return not any(p in texto for p in palavras_jogos)
     filtrados = list(filter(nao_e_jogo, artigos))
-    return filtrados[:6] 
+    
+    # Pegar os primeiros 6 artigos e adicionar resumos
+    artigos_finais = []
+    for artigo in filtrados[:6]:
+        # Gerar resumo em português
+        resumo = generate_news_summary(
+            title=artigo.get('title', ''),
+            description=artigo.get('description', ''),
+            content=artigo.get('content', '')
+        )
+        
+        # Adicionar o resumo ao artigo
+        artigo['resumoGPT'] = resumo
+        artigos_finais.append(artigo)
+    
+    return artigos_finais 

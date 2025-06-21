@@ -80,7 +80,9 @@ const Body = () => {
               {noticia.urlToImage && <img src={noticia.urlToImage} alt={noticia.title} className="news-img" />}
               <div>
                 <h3>{noticia.title}</h3>
-                <p style={{ fontSize: '0.95rem', color: '#555' }}>{noticia.description}</p>
+                <p style={{ fontSize: '0.95rem', color: '#555' }}>
+                  {noticia.resumoGPT || noticia.description}
+                </p>
                 <span style={{ fontSize: '0.8rem', color: '#888' }}>{noticia.source?.name}</span>
               </div>
             </a>

@@ -1,6 +1,7 @@
-Flask
-Flask-Cors
+Flask==2.3.3
+Flask-Cors==4.0.0
 Flask-Mail
-python-dotenv
-requests
-gunicorn 
+python-dotenv==1.0.0
+requests==2.31.0
+gunicorn==21.2.0
+google-generativeai==0.8.5 
