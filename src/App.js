@@ -3,9 +3,9 @@ import { Header } from './component/Header';
 import Body from './component/Body';
 import { Footer } from './component/Footer';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import AboutUs from './pages/AboutUs';
-import WhatWeDo from './pages/WhatWeDo';
 import Technologies from './pages/Technologies';
+import WhatWeDo from './pages/WhatWeDo';
+import AboutUs from './pages/AboutUs';
 import TalkToUs from './pages/TalkToUs';
 
 function App() {

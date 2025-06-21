@@ -1,56 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleHeader } from './style';
 import { Link } from 'react-router-dom';
-
 import logotipo from "../imagens/Braço-removebg-preview.png"
-
-import { FaFacebook, FaLinkedinIn } from "react-icons/fa";
+import { FaFacebook, FaLinkedinIn, FaBars, FaTimes } from "react-icons/fa";
 import { RiInstagramFill } from "react-icons/ri";
 
 export const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <StyleHeader>
       <div className="container">
         <div className='definicao'>
-
           <Link to="/">
             <div className="logotipo">
               <img src={logotipo} alt="Logo" />
             </div>
           </Link>
 
-      
+          <div className='menu-icon' onClick={toggleMenu}>
+            {menuOpen ? <FaTimes /> : <FaBars />}
+          </div>
 
-          <div className='centralizarContent'>
-            <div>
-              <div className="dropdown-container">
-                <div className="dropdown-button">Navigate</div>
-                <ul className="dropdown-menu">
-                  <li><Link to="/about-us">About us</Link></li>
-                  <li><Link to="/what-we-do">What we do</Link></li>
-                  <li><Link to="/technologies">Technologies</Link></li>
-                  <li><Link to="/talk-to-us">Talk to us</Link></li>
-                </ul>
-              </div>
-            </div>
-            <div className="menu">
-              <ul>
-                <li>
-                  <div class="btn-service"><span class="text">Serviços</span></div>
-                </li>
-                <li className="fundo">
-                  <RiInstagramFill />
-                </li>
-                <li className="fundo">
-                  <FaLinkedinIn />
-                </li>
-                <li className="fundo">
-                  <FaFacebook />
-                </li>
-              </ul>
+          <div className={`nav-container ${menuOpen ? 'active' : ''}`}>
+            <nav className="desktop-nav">
+              <Link to="/about-us">Sobre Nós</Link>
+              <Link to="/what-we-do">O que Fazemos</Link>
+              <Link to="/technologies">Tecnologias</Link>
+              <Link to="/talk-to-us">Fale Conosco</Link>
+            </nav>
+            <div className="social-media">
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="fundo"><RiInstagramFill /></a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="fundo"><FaLinkedinIn /></a>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="fundo"><FaFacebook /></a>
             </div>
           </div>
-          
         </div>
       </div>
     </StyleHeader>

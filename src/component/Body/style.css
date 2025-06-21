@@ -20,6 +20,7 @@
   margin-bottom: 20px;
   background: linear-gradient(45deg, #00ff88, #00a1ff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -164,6 +165,7 @@
   margin-bottom: 30px;
   background: linear-gradient(45deg, #00ff88, #00a1ff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -187,7 +189,6 @@
   }
 }
 
-/* Stacks Section */
 .stacks-section {
   padding: 40px 0;
   background: #f9f9f9;
@@ -233,7 +234,6 @@
   display: block;
 }
 
-/* Cores específicas para cada stack */
 .stack-card .fa-python { color: #3776AB; }
 .stack-card .fa-java { color: #007396; }
 .stack-card .fa-js-square { color: #F7DF1E; }
@@ -241,7 +241,7 @@
 .stack-card .fa-angular { color: #DD0031; }
 .stack-card .fa-aws { color: #FF9900; }
 .stack-card .fa-database { color: #4DB33D; }
-.stack-card .fa-code { color: #512BD4; } /* Roxo do .NET */
+.stack-card .fa-code { color: #512BD4; }
 
 .news-section {
   padding: 40px 0 20px 0;
