@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Mokoto';
+  src: url('../src/fonts/Exo2-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Mokoto', sans-serif;
+}
+
+.bg-yellow{
+  background: #e3a72f;
+}
+
+.reserved{
+  margin: 0px auto;
+    width: 1024px;
+    text-align: center;
+    padding: 2px;
+    font-size: 12px;
+}

@@ -1,0 +1,41 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f4f1ea;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+@font-face {
+  font-family: 'Mokoto';
+  src: url('../src/fonts/Exo2-Italic-VariableFont_wght.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Mokoto', sans-serif;
+}
+
+main {
+  margin-top: 101px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  height: auto;
+  padding: 10px;
+  position: relative;
+  background-color: #e3a72f;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  display: flex;
+}
+
+.content {
+  flex: 1;
+}
