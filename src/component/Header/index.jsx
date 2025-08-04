@@ -28,6 +28,8 @@ export const Header = () => {
 
           <div className={`nav-container ${menuOpen ? 'active' : ''}`}>
             <nav className="desktop-nav">
+              <Link to="/">Home</Link>
+              <Link to="/services">Nossos Serviços</Link>
               <Link to="/about-us">Sobre Nós</Link>
               <Link to="/what-we-do">O que Fazemos</Link>
               <Link to="/technologies">Tecnologias</Link>

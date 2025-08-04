@@ -12,8 +12,9 @@ import {
   finalParagraphStyle
 } from './style';
 
-const WhatWeDo = () => (
-  <div style={sectionStyle}>
+const WhatWeDo = () => {
+  return (
+    <div style={sectionStyle}>
     <h1 style={titleStyle}>O que fazemos</h1>
     <p style={paragraphStyle}>
       Na <span style={highlightStyle}>Code Brew</span>, desenvolvemos soluções digitais sob medida para transformar negócios e ideias em experiências inovadoras.
@@ -52,6 +53,7 @@ const WhatWeDo = () => (
       Pronto para transformar seu projeto em realidade? Fale com a gente!
     </p>
   </div>
-);
+  );
+};
 
 export default WhatWeDo; 

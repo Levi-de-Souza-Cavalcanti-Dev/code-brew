@@ -15,8 +15,9 @@ import {
   finalParagraphStyle
 } from './style';
 
-const AboutUs = () => (
-  <div style={aboutSectionStyle}>
+const AboutUs = () => {
+  return (
+    <div style={aboutSectionStyle}>
     <h1 style={titleStyle}>Sobre a <span style={highlightStyle}>Code Brew</span></h1>
     <p style={paragraphStyle}>
       Somos apaixonados por <span style={highlightStyle}>tecnologia</span> e por transformar ideias em soluções digitais inovadoras. Na Code Brew, acreditamos que cada projeto é uma oportunidade de criar algo único, impactante e que gere valor real para pessoas e empresas.
@@ -60,6 +61,7 @@ const AboutUs = () => (
       Vamos juntos transformar sua ideia em realidade digital!
     </p>
   </div>
-);
+  );
+};
 
 export default AboutUs; 

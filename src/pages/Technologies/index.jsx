@@ -11,8 +11,9 @@ import {
   finalParagraphStyle
 } from './style';
 
-const Technologies = () => (
-  <div style={sectionStyle}>
+const Technologies = () => {
+  return (
+    <div style={sectionStyle}>
     <h1 style={titleStyle}>Tecnologias que usamos</h1>
     <p style={paragraphStyle}>
       Utilizamos as stacks e ferramentas mais modernas do mercado para garantir performance, segurança e inovação em cada projeto.
@@ -68,6 +69,7 @@ const Technologies = () => (
       Estamos sempre atentos às tendências para entregar o melhor em tecnologia!
     </p>
   </div>
-);
+  );
+};
 
 export default Technologies; 
