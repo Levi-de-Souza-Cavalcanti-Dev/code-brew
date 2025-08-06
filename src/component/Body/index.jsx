@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 import gearImage from '../imagens/engrenagem-removebg-preview.png';
 import { SiDotnet } from 'react-icons/si';
@@ -6,6 +7,7 @@ import { SiDotnet } from 'react-icons/si';
 const Body = () => {
   const [noticias, setNoticias] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchNoticias = async () => {
@@ -52,13 +54,17 @@ const Body = () => {
     console.log('Cache limpo');
   };
 
+  const handleStartProject = () => {
+    navigate('/services');
+  };
+
   return (
     <div className="body-container">
       <section className="hero-section">
         <div className="hero-content">
-          <h1>Transformando Ideias em Código</h1>
+          <h1>Expandindo Negócios com Tecnologia</h1>
           <p>Desenvolvimento de software com excelência e inovação</p>
-          <button className="cta-button">Comece seu Projeto</button>
+          <button className="cta-button" onClick={handleStartProject}>Comece seu Projeto</button>
         </div>
       </section>
 
