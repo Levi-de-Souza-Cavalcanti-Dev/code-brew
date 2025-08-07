@@ -385,7 +385,7 @@ export const badgeStyle = {
 export const popularBadgeStyle = {
   position: 'absolute',
   top: '15px',
-  left: '50%',
+  left: '27.5%',
   transform: 'translateX(-50%)',
   background: 'linear-gradient(45deg, #FF6B35, #FF8C42)',
   color: '#ffffff',
@@ -398,6 +398,12 @@ export const popularBadgeStyle = {
   boxShadow: '0 5px 15px rgba(255, 107, 53, 0.3)',
   zIndex: 10,
   animation: 'pulse 2s ease-in-out infinite',
+  whiteSpace: 'nowrap',
+  textAlign: 'center',
+  minWidth: 'fit-content',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 };
 
 export const priceStyle = {
