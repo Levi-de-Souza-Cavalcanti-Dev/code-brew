@@ -607,6 +607,14 @@ style.textContent = `
       radial-gradient(circle at 40% 40%, rgba(0, 255, 136, 0.05) 0%, transparent 50%);
     animation: pulse 4s ease-in-out infinite;
   }
+
+  /* Mobile overrides for popular badge */
+  @media (max-width: 768px) {
+    .popular-badge {
+      left: 50% !important;
+      transform: translateX(-50%) !important;
+    }
+  }
 `;
 
 if (!document.getElementById('services-styles')) {

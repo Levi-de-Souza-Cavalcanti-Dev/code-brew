@@ -320,7 +320,7 @@ const Services = () => {
 
           {/* Pro Plan */}
           <div style={pricingCardProStyle}>
-            <div style={popularBadgeStyle}>
+            <div style={popularBadgeStyle} className="popular-badge">
               <FaStar style={{ marginRight: '0.5rem' }} />
               Mais Popular
             </div>
@@ -465,7 +465,7 @@ const Services = () => {
 
           {/* Automação Pro Plan */}
           <div style={pricingCardProStyle}>
-            <div style={popularBadgeStyle}>
+            <div style={popularBadgeStyle} className="popular-badge">
               <FaStar style={{ marginRight: '0.5rem' }} />
               Mais Popular
             </div>
@@ -632,7 +632,7 @@ const Services = () => {
 
           {/* Dashboard Pro Plan */}
           <div style={pricingCardProStyle}>
-            <div style={popularBadgeStyle}>
+            <div style={popularBadgeStyle} className="popular-badge">
               <FaStar style={{ marginRight: '0.5rem' }} />
               Mais Popular
             </div>
@@ -763,7 +763,7 @@ const Services = () => {
 
           {/* SaaS Pro Plan */}
           <div style={pricingCardProStyle}>
-            <div style={popularBadgeStyle}>
+            <div style={popularBadgeStyle} className="popular-badge">
               <FaStar style={{ marginRight: '0.5rem' }} />
               Mais Popular
             </div>

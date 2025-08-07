@@ -105,7 +105,10 @@ export const StyleHeader = styled.header`
   @media (max-width: 768px) {
     .menu-icon {
       display: block;
-      z-index: 101; /* Garante que o ícone fique acima do menu */
+      position: fixed;
+      top: 26px;
+      right: 24px;
+      z-index: 110; /* Acima do menu móvel */
     }
 
     .nav-container {
@@ -121,6 +124,7 @@ export const StyleHeader = styled.header`
       align-items: center;
       gap: 40px;
       transition: right 0.4s ease-in-out;
+      z-index: 105; /* Abaixo do ícone */
     }
 
     .nav-container.active {
